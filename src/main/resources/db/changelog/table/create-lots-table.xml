@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+<changeSet id="create-lots-table" author="Vyacheslav">
+    <preConditions>
+        <not>
+            <tableExists tableName="lots"/>
+        </not>
+    </preConditions>
+    <createTable tableName="lots">
+        <column name="id" type="INT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+        <column name="title" type="VARCHAR(64)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="describtion" type="VARCHAR(4096)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="start_price" type="INT">
+            <constraints nullable="false"/>
+        </column>
+        <column name="bid_price" type="INT">
+            <constraints nullable="false"/>
+        </column>
+        <column name="status" type="VARCHAR(7)">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+</changeSet>
+
+
+
+
+</databaseChangeLog>
