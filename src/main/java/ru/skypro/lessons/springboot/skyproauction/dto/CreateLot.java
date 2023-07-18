@@ -18,6 +18,7 @@ public class CreateLot {
     @NotNull
     @Min(1)
     private Integer bidPrice;
+    private int id;
 
     public String getTitle() {
         return title;
@@ -49,5 +50,13 @@ public class CreateLot {
 
     public void setStartPrice(int startPrice) {
         this.startPrice = startPrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

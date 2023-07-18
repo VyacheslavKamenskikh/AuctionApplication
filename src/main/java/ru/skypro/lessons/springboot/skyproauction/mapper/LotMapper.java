@@ -17,6 +17,7 @@ public class LotMapper {
 
     public Lot toEntity(CreateLot createLot){
         Lot lot = new Lot();
+        lot.setId(createLot.getId());
         lot.setStatus(Status.CREATED);
         lot.setTitle(createLot.getTitle());
         lot.setDescribtion(createLot.getDescribtion());
@@ -27,6 +28,7 @@ public class LotMapper {
 
     public ru.skypro.lessons.springboot.skyproauction.dto.Lot toDto(Lot lot){
         ru.skypro.lessons.springboot.skyproauction.dto.Lot lotDto = new ru.skypro.lessons.springboot.skyproauction.dto.Lot();
+        lotDto.setId(lot.getId());
         lotDto.setStatus(lot.getStatus());
         lotDto.setTitle(lot.getTitle());
         lotDto.setDescribtion(lot.getDescribtion());

@@ -29,6 +29,11 @@ public class Bid {
         this.name = name;
     }
 
+    public Bid(String name, Lot lot) {
+        this.name = name;
+        this.lot = lot;
+    }
+
     public int getId() {
         return id;
     }

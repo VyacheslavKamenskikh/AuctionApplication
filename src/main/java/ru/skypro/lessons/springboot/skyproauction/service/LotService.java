@@ -55,7 +55,7 @@ public class LotService {
             throw new LotNotStarted();
         }
         else {
-          bidRepository.save(new ru.skypro.lessons.springboot.skyproauction.entity.Bid(bidder.getName()));
+          bidRepository.save(new ru.skypro.lessons.springboot.skyproauction.entity.Bid(bidder.getName(), lot));
         }
     }
 
@@ -76,7 +76,7 @@ public class LotService {
     }
 
     public List<ru.skypro.lessons.springboot.skyproauction.dto.Lot> findLots(@Nullable Status status, int page) {
-        Pageable pageable = PageRequest.of(page,10);
+        Pageable pageable = PageRequest.of(page,100);
         return Optional.ofNullable(status).map(st-> lotRepository.findAllByStatus(st,pageable)).orElseGet(()-> lotRepository.findAll(pageable))
                 .stream().map(lotMapper::toDto).collect(Collectors.toList());
     }
