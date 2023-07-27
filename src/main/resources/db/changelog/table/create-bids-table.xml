@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="create-bids-table" author="Vyacheslav">
+        <preConditions>
+            <not>
+                <tableExists tableName="bids"/>
+            </not>
+        </preConditions>
+        <createTable tableName="bids">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_time" type="TIMESTAMP(6) WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lot_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    <addForeignKeyConstraint baseTableName="bids" baseColumnNames="lot_id" constraintName="FK_BIDS_LOT_ID" referencedTableName="lots"
+                             referencedColumnNames="id"/>
+    </changeSet>
+
+
+
+
+</databaseChangeLog>
